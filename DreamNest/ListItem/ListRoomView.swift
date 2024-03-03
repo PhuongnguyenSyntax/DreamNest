@@ -1,18 +1,18 @@
 //
-//  ListItemView.swift
+//  ListRoomView.swift
 //  DreamNest
 //
-//  Created by Flama Henkel on 27.02.24.
+//  Created by Flama Henkel on 01.03.24.
 //
 
 import SwiftUI
 
-struct ListItemView: View {
+struct ListRoomView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    ListItemView()
+    ListRoomView()
 }
