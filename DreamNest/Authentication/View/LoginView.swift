@@ -11,12 +11,13 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         NavigationStack {
             VStack {
                 Image("logo1")
                     .resizable()
-                    .frame(width: .infinity, height: 180)
                     .padding(.vertical, 32)
                 VStack(spacing: 24) {
                     InputView(text: $email,
@@ -47,7 +48,9 @@ struct LoginView: View {
                 }
                 
                 Button {
-                    print("Log User in..")
+                    Task {
+                        try await viewModel.signIn(withEmail: email, password: password)
+                    }
                 } label: {
                     HStack {
                         Text("Einloggen")
@@ -55,17 +58,15 @@ struct LoginView: View {
                         Image(systemName: "arrow.right")
                     }
                     .foregroundColor(.white)
-                    .frame(width: UIScreen.main.bounds.width - 32, height: 40)
+                    .frame(width: 360, height: 40)
                     
                 }
                 .background(Color(.dark))
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1.0 : 0.5)
                 .cornerRadius(10)
                 .padding(.top, 24)
-                
-                Text("Oder weiter mit")
-                    .foregroundColor(.dark)
-                    .font(.system(size: 14, weight: .semibold))
-                    .padding(.top, 14)
+                .padding(.bottom, 40)
                 
                 BottomView(googleAction: {}, facebookAction: {}, appleAction: {})
                 
@@ -85,6 +86,17 @@ struct LoginView: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - AuthenticationFormProtocol
+
+extension LoginView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && !password.isEmpty
+        && password.count > 6
     }
 }
 
