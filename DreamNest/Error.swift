@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+enum AppError: Error {
+    case invalidURL
+    case invalidResponse
+    case invalidData
+    case unableToComplete
+}

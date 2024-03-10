@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct FavoriteListView: View {
+    
+    @ObservedObject var viewModel = FavoriteListViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                if viewModel.favoriteRooms.isEmpty {
+                    Text("You haven't saved any favorite Item yet. Please save your favorite Item.")
+                        .font(.system(size: 24, weight: .semibold))
+                        .foregroundColor(.blue)
+                        .padding()
+                    
+                } else {
+                    List(viewModel.favoriteRooms) { room in
+                        NavigationLink(destination: DetailRoomView(room: room, viewModel: DetailRoomViewModel())) {
+                            RoomCartView(roomModel: room)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Favorites")
+        }
+      
+        .onAppear{
+            viewModel.fetchFavorites()
+        }
     }
 }
 
 #Preview {
     FavoriteListView()
 }
+

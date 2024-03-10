@@ -26,21 +26,21 @@ struct RegistrationView: View {
             
             VStack(spacing:24) {
                 InputView(text: $email,
-                          title: "Email Adresse",
-                          placeholder: "Bitte geben Sie Ihre Email Adresse ein")
+                          title: "Email Address",
+                          placeholder: "Please enter your email address")
                 .autocapitalization(.none)
                 
                 InputView(text: $fullname,
                           title: "Name",
-                          placeholder: "Bitte geben Sie Ihren Name ein")
+                          placeholder: "Please enter your name")
                 InputView(text: $password,
-                          title: "Passwort",
-                          placeholder: "Bitte geben Sie Ihr Passwort ein",
+                          title: "Password",
+                          placeholder: "Please enter your password",
                           isSecureField: true)
                 HStack {
                     InputView(text: $confirmPassword,
-                              title: "Passwort wiederholen",
-                              placeholder: "Bitte wiederholen Ihr Passwort",
+                              title: "Confirm Password",
+                              placeholder: "Please confirm your password",
                               isSecureField: true)
                     Spacer()
                     if  !password.isEmpty && !confirmPassword.isEmpty {
@@ -69,7 +69,7 @@ struct RegistrationView: View {
                 }
             } label: {
                 HStack {
-                    Text("Reistrieren")
+                    Text("Sign up")
                         .fontWeight(.semibold)
                     Image(systemName: "arrow.right")
                 }
@@ -88,7 +88,7 @@ struct RegistrationView: View {
                 dismiss()
             } label: {
                 HStack(spacing: 3) {
-                    Text("Haben Sie bereits ein Konto?")
+                    Text("Already have an Account?")
                     Text("Login")
                         .fontWeight(.bold)
                 }

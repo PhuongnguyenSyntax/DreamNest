@@ -21,14 +21,14 @@ struct LoginView: View {
                     .padding(.vertical, 32)
                 VStack(spacing: 24) {
                     InputView(text: $email,
-                              title: "Email Adresse",
-                              placeholder: "Bitte geben Sie Ihre Email Adresse ein",
+                              title: "Email Address",
+                              placeholder: "Please enter your Email address",
                               isSecureField: false)
                     .autocapitalization(.none)
                     
                     InputView(text: $password,
-                              title: "Passwort",
-                              placeholder: "Bitte geben Sie Ihre Passwort ein",
+                              title: "Password",
+                              placeholder: "Please enter your Password",
                               isSecureField: true)
                 }
                 .padding(.horizontal)
@@ -39,7 +39,7 @@ struct LoginView: View {
                     Button {
                         // action
                     } label: {
-                        Text("Passwort vergessen?")
+                        Text("Forgot password ?")
                             .foregroundColor(.dark)
                             .font(.system(size: 14, weight: .semibold))
                     }
@@ -53,7 +53,7 @@ struct LoginView: View {
                     }
                 } label: {
                     HStack {
-                        Text("Einloggen")
+                        Text("Login")
                             .fontWeight(.semibold)
                         Image(systemName: "arrow.right")
                     }
@@ -77,8 +77,8 @@ struct LoginView: View {
                         .navigationBarBackButtonHidden()
                 } label: {
                     HStack {
-                        Text("Haben Sie noch kein Konto?")
-                        Text("Registrieren")
+                        Text("Don't have an account yet?")
+                        Text("Sign up")
                             .fontWeight(.bold)
                     }
                     .font(.system(size: 14))

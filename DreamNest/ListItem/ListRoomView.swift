@@ -8,10 +8,31 @@
 import SwiftUI
 
 struct ListRoomView: View {
+    @StateObject private var viewModel = ListRoomViewModel()
+    @StateObject var detailViewModel = DetailRoomViewModel()
+
+    @State private var searchText = ""
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List(viewModel.filteredRooms) { room in
+                NavigationLink(destination: DetailRoomView(room: room, viewModel: DetailRoomViewModel())) {
+                    RoomCartView(roomModel: room)
+                    .frame(maxWidth: .infinity)
+                }
+            }
+            .listRowInsets(EdgeInsets())
+            .searchable(text: $searchText, prompt: "Search by name")
+            .onChange(of: searchText) {
+                viewModel.searchRooms(with: searchText)
+            }
+        }
+        .onAppear {
+            viewModel.load()
+        }
     }
 }
+
 
 #Preview {
     ListRoomView()

@@ -94,7 +94,7 @@ struct DetailRoomView: View {
                                 image.resizable()
                                 
                             } placeholder: {
-                                ProgressView()
+                               Image(systemName: "photo")
                             }
                             .frame(width: 75, height: 75)
                             .aspectRatio(contentMode: .fill)
@@ -136,7 +136,7 @@ struct DetailRoomView: View {
                 .foregroundColor(.white)
                 .cornerRadius(10)
                 .sheet(isPresented: $showBookingView){
-                    BookingView(name: room.name ?? "", street: room.street ?? "", price: room.price ?? 1)
+                    BookingView(showBookingView: $showBookingView, name: room.name ?? "", street: room.street ?? "", price: room.price ?? 1)
                 }
                 
             }

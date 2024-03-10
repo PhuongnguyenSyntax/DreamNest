@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct MyBookingsView: View {
+    @StateObject var viewModel = BookingViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List(viewModel.bookings) { booking in
+                BookingRowView(booking: booking)
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            viewModel.deleteBooking(booking)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+            }
+            .navigationTitle("My Bookings")
+            .onAppear {
+                viewModel.fetchBookings()
+            }
+        }
     }
 }
 

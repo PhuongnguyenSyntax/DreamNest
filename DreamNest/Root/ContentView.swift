@@ -11,6 +11,16 @@ struct ContentView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
+    init() {
+            let appearance = UITabBarAppearance()
+        appearance.backgroundColor = .tabbar
+        // Thay đổi màu nền của TabBar tại đây
+            
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+            UITabBar.appearance().standardAppearance = appearance
+        }
+        
+    
     var body: some View {
         TabView {
             HomeView()
@@ -38,6 +48,7 @@ struct ContentView: View {
             }
         }
         .accentColor(.dark)
+        
     }
 }
 

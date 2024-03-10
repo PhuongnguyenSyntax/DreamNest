@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookingView: View {
     
+    @Binding var showBookingView: Bool
     let name: String
     let street: String
     let price: Int
@@ -36,6 +37,10 @@ struct BookingView: View {
         return total
     }
     
+    private var minEndDate: Date {
+        Calendar.current.date(byAdding: .day, value: 1, to: startDate) ?? Date()
+    }
+    
     
     var body: some View {
         ScrollView {
@@ -60,10 +65,10 @@ struct BookingView: View {
                     .foregroundColor(.green)
                 
                 
-                DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+                DatePicker("Start Date", selection: $startDate, in: Date()..., displayedComponents: .date)
                     .padding([.leading, .trailing], 15)
                 
-                DatePicker("End Date", selection: $endDate, displayedComponents: .date)
+                DatePicker("End Date", selection: $endDate, in: minEndDate..., displayedComponents: .date)
                     .padding([.leading, .trailing], 15)
                 
                 Stepper("Adults: \(adultCount)", value: $adultCount, in: 1...10)
@@ -107,7 +112,8 @@ struct BookingView: View {
                         childrenCount: childrenCount,
                         hasPets: hasPets,
                         promoCode: promoCode.isEmpty ? nil : promoCode,
-                        totalAmount: calculatedTotalAmount
+                        totalAmount: calculatedTotalAmount,
+                        bookingDate: Date()
                     )
                     
                     bookingViewModel.addBooking(newBooking) { success in
@@ -133,7 +139,11 @@ struct BookingView: View {
                 Alert(
                     title: Text(bookingSuccess ? "Booking Successful" : "Booking Failed"),
                     message: Text(alertMessage),
-                    dismissButton: .default(Text("OK"))
+                    dismissButton: .default(Text("OK")) {
+                        if bookingSuccess {
+                            self.showBookingView = false
+                        }
+                    }
                 )
             }
         }
@@ -150,5 +160,5 @@ struct BookingView: View {
 }
 
 #Preview {
-    BookingView(name: "Hanoi Hotel", street: "Bahnhofstr. 123", price: 99)
+    BookingView(showBookingView: .constant(true), name: "Hanoi Hotel", street: "Bahnhofstr. 123", price: 99)
 }
