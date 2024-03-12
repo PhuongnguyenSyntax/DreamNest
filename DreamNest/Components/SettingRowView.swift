@@ -21,7 +21,6 @@ struct SettingRowView: View {
             Text(title)
                 .font(.subheadline)
                 .foregroundColor(.dark)
-            
         }
     }
 }

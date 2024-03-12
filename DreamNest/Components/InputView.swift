@@ -14,7 +14,6 @@ struct InputView: View {
     let placeholder: String
     var isSecureField = false
     
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
@@ -30,7 +29,6 @@ struct InputView: View {
             }
             Divider()
         }
-        
     }
 }
 

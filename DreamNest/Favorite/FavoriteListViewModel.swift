@@ -13,13 +13,10 @@ class FavoriteListViewModel: ObservableObject {
     
     init() {
      fetchFavorites()
-    }
-    
+    }   
     func fetchFavorites() {
         favoriteRooms = repository.fetchFavoriteRooms()
     }
-    
-    
     func removeFavorite(_ room: RoomItem) {
         repository.removeFavorite(room)
         fetchFavorites()

@@ -13,11 +13,9 @@ class ListRoomViewModel: ObservableObject {
     @Published var filteredRooms: [RoomItem] = []
     
     private let apiRoomRepository : ApiRoomRepository
-   
     
     init(){
         self.apiRoomRepository = ApiRoomRepository()
-       
     }
     
     @MainActor

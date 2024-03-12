@@ -118,11 +118,21 @@ struct DetailRoomView: View {
                             }
                         }
                         .padding(.leading, 15)
+                       
+                        Text("")
+                        Text("")
+                        Text("")
+                        Text("")
+                        Text("")
+                        Text("")
                         
                     }
                 }
                 
+                
             }
+          
+            
             
             VStack {
                 Spacer()
@@ -138,6 +148,7 @@ struct DetailRoomView: View {
                 .sheet(isPresented: $showBookingView){
                     BookingView(showBookingView: $showBookingView, name: room.name ?? "", street: room.street ?? "", price: room.price ?? 1)
                 }
+                
                 
             }
         }
@@ -162,6 +173,9 @@ struct DetailRoomView: View {
                 }
             }
         }
+        
+       
+        
     }
 }
 

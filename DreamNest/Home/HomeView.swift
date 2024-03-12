@@ -83,7 +83,7 @@ struct HomeView: View {
             .onAppear{
                 viewModel.loadRecommendedRooms()
             }
-         }
+        }
     }
 }
 

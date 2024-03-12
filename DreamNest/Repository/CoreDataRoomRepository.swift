@@ -22,8 +22,6 @@ class CoreDataRoomRepository {
         PersistentStore.shared.saveChanges()
     }
     
-    
-    
     func removeFavorite(_ room: RoomItem) {
         let fetchRequest = FavoriteRoomItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id = %@", room.id)

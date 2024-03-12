@@ -18,7 +18,10 @@ struct RoomItemView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                .frame(width: .infinity, height: 200)
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: 200)
+                .clipped()
+                
             }
             Text(room.name ?? "Unknown")
                 .font(.headline)
@@ -39,7 +42,7 @@ struct RoomItemView: View {
             }
             
             .padding([.leading, .trailing, .bottom], 15)
-         }
+        }
         .frame(maxWidth: .infinity)
         .cornerRadius(10)
         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)

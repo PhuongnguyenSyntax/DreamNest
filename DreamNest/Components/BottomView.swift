@@ -45,7 +45,6 @@ struct BottomView: View {
                         .iconButtonStyle
                 }
             }
-            
         }
     }
 }

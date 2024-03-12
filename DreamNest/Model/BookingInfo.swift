@@ -10,11 +10,9 @@ import FirebaseFirestoreSwift
 
 struct BookingInfo: Codable, Identifiable {
     @DocumentID var id: String?
-    
     var name: String
     var street: String
     var price: Int
-    
     var userId: String
     var startDate: Date
     var endDate: Date
@@ -22,7 +20,6 @@ struct BookingInfo: Codable, Identifiable {
     var childrenCount: Int
     var hasPets: Int
     var promoCode: String?
-    var totalAmount: Int
-    
+    var totalAmount: Int    
     var bookingDate: Date
 }

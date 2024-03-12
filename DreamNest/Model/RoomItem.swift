@@ -12,8 +12,6 @@ struct RoomItemList: Codable {
     let results: [RoomItem]
 }
 
-
-
 struct RoomItem: Identifiable, Codable, Hashable {
         let id: String
         let listing_url: String?
@@ -31,13 +29,11 @@ struct RoomItem: Identifiable, Codable, Hashable {
         let street: String?
         let review_scores_rating: Int?
         
-        
         //Host detail
         let host_name: String
         let host_since: String
         let host_picture_url: String
         let features: [String]?
-    
 }
 
 
