@@ -139,12 +139,17 @@ struct DetailRoomView: View {
                 Button("Booking") {
                     showBookingView = true
                 }
-                .font(.system(size: 18, weight: .bold))
-                .frame(width: 300)
+                .frame(minWidth: 0, maxWidth: .infinity)
                 .padding()
-                .background(.green)
                 .foregroundColor(.white)
-                .cornerRadius(10)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .leading, endPoint: .trailing))
+                .cornerRadius(40)
+                .padding(.all, 5)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 40)
+                        .stroke(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple, Color.yellow]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
+                )
+                .padding()
                 .sheet(isPresented: $showBookingView){
                     BookingView(showBookingView: $showBookingView, name: room.name ?? "", street: room.street ?? "", price: room.price ?? 1)
                 }

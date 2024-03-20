@@ -75,7 +75,10 @@ struct HomeView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(viewModel.recommendedRooms, id: \.self) { room in
-                        RoomItemView(room: room)
+                        NavigationLink(destination: DetailRoomView(room: room, viewModel: DetailRoomViewModel())) {
+                            RoomItemView(room: room)
+                        }
+                      
                     }
                 }
                 .padding(.horizontal)

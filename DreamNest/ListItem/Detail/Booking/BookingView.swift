@@ -128,11 +128,16 @@ struct BookingView: View {
                         
                     }
                 }
-                .frame(maxWidth: .infinity)
+                .frame(minWidth: 0, maxWidth: .infinity)
                 .padding()
-                .background(Color.blue)
                 .foregroundColor(.white)
-                .cornerRadius(10)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .leading, endPoint: .trailing))
+                .cornerRadius(40)
+                .padding(.all, 5)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 40)
+                        .stroke(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple, Color.yellow]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
+                )
                 .padding()
             }
             .alert(isPresented: $showAlert) {
