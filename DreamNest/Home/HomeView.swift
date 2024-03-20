@@ -14,6 +14,7 @@ struct HomeView: View {
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var listRoomViewModel = ListRoomViewModel()
     
     var body: some View {
         NavigationStack {
@@ -26,13 +27,20 @@ struct HomeView: View {
                         .frame(width: 60, height: 60)
                         .clipShape(Circle())
                     
-                    TextField("Search...", text: .constant(""))
-                        .frame(height:45)
+                    NavigationLink(destination: SearchView(viewModel: listRoomViewModel)) {
+                        HStack {
+                            Text("Search...")
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
+                        .frame(height: 50)
+                        .frame(maxWidth: .infinity)
                         .padding(.horizontal, 20)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.dark, lineWidth: 1)
                         )
+                    }
                 }
                 .padding()
                 
@@ -78,7 +86,7 @@ struct HomeView: View {
                         NavigationLink(destination: DetailRoomView(room: room, viewModel: DetailRoomViewModel())) {
                             RoomItemView(room: room)
                         }
-                      
+                        
                     }
                 }
                 .padding(.horizontal)

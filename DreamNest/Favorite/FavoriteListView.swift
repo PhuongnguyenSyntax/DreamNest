@@ -16,9 +16,11 @@ struct FavoriteListView: View {
             VStack {
                 if viewModel.favoriteRooms.isEmpty {
                     Text("You haven't saved any favorite Item yet. Please save your favorite Item.")
-                        .font(.system(size: 24, weight: .semibold))
+                        .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.blue)
                         .padding()
+                        .multilineTextAlignment(.center)
+                    Spacer()
                     
                 } else {
                     List(viewModel.favoriteRooms) { room in

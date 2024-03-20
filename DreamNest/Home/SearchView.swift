@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct SearchView: View {
+    
+    @ObservedObject var viewModel: ListRoomViewModel
+    @State private var searchText = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack(root: {
+            List(filteredRooms) { item in
+                NavigationLink(destination: DetailRoomView(room: item, viewModel: DetailRoomViewModel())) {
+                    Text(item.name ?? "")
+                }
+            }
+            .navigationTitle("Search")
+            .searchable(text: $searchText, prompt: Text("Search for any place name"))
+        })
+        .onAppear {
+            viewModel.load()
+        }
+    }
+    
+    var filteredRooms: [RoomItem] {
+        viewModel.rooms.filter {
+            searchText.isEmpty || $0.name?.localizedCaseInsensitiveContains(searchText) ?? false
+        }
     }
 }
 
 #Preview {
-    SearchView()
+    SearchView(viewModel: ListRoomViewModel())
 }
+

@@ -28,6 +28,7 @@
 		62D87E1B2B9D1613000AFB5F /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D87E1A2B9D1613000AFB5F /* FirebaseManager.swift */; };
 		62D87E1E2B9D246A000AFB5F /* MyBookingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D87E1D2B9D246A000AFB5F /* MyBookingsView.swift */; };
 		62D87E222B9D2601000AFB5F /* BookingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D87E212B9D2601000AFB5F /* BookingRowView.swift */; };
+		62D87E8F2BAAFBFA000AFB5F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D87E8E2BAAFBFA000AFB5F /* SearchView.swift */; };
 		62E84BDC2B8D2408000C6233 /* DreamNestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E84BDB2B8D2408000C6233 /* DreamNestApp.swift */; };
 		62E84BDE2B8D2408000C6233 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E84BDD2B8D2408000C6233 /* ContentView.swift */; };
 		62E84BE02B8D2409000C6233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62E84BDF2B8D2409000C6233 /* Assets.xcassets */; };
@@ -114,6 +115,7 @@
 		62D87E1A2B9D1613000AFB5F /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		62D87E1D2B9D246A000AFB5F /* MyBookingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookingsView.swift; sourceTree = "<group>"; };
 		62D87E212B9D2601000AFB5F /* BookingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRowView.swift; sourceTree = "<group>"; };
+		62D87E8E2BAAFBFA000AFB5F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		62E84BD82B8D2408000C6233 /* DreamNest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamNest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E84BDB2B8D2408000C6233 /* DreamNestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamNestApp.swift; sourceTree = "<group>"; };
 		62E84BDD2B8D2408000C6233 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				62D87E072B97AF0E000AFB5F /* HomeViewModel.swift */,
 				62D87E052B97A702000AFB5F /* RoomItemView.swift */,
 				62E84C182B8E4843000C6233 /* HomeView.swift */,
+				62D87E8E2BAAFBFA000AFB5F /* SearchView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				62D87E222B9D2601000AFB5F /* BookingRowView.swift in Sources */,
 				62E84C212B8F37C0000C6233 /* SettingRowView.swift in Sources */,
 				62D87DEF2B91FACB000AFB5F /* RoomItem.swift in Sources */,
+				62D87E8F2BAAFBFA000AFB5F /* SearchView.swift in Sources */,
 				62D87E082B97AF0E000AFB5F /* HomeViewModel.swift in Sources */,
 				62D87E0E2B97C4E1000AFB5F /* PersistentStore.swift in Sources */,
 				62E84C192B8E4843000C6233 /* HomeView.swift in Sources */,
