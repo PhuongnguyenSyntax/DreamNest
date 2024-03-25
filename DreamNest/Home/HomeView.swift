@@ -19,13 +19,15 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                // Header with avatar and search bar
                 HStack {
-                    Image("logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 60, height: 60)
-                        .clipShape(Circle())
+                    NavigationLink(destination: Profile()) {
+                            Image("logo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 60, height: 60)
+                                .clipShape(Circle())
+                        }
+
                     
                     NavigationLink(destination: SearchView(viewModel: listRoomViewModel)) {
                         HStack {
